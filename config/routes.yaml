@@ -1,0 +1,6 @@
+#index:
+#   path: /
+#   controller: App\Controller\ProjectController::index
+#displayin_table:
+#    path: /displayin_table
+#    controller: App\Controller\ProjectController::displayin_table

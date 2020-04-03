@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <!-- Load required Bootstrap and BootstrapVue CSS -->
+<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+
+  <meta charset="utf-8">
+  <title>Symfony  Application</title>
+
+  <style>
+  
+ 
+  </style>
+</head>
+
+  <body>
+        <div class="container-fluid">
+            
+                <div class="row bg-dark">
+                       <div class="col-lg-12">
+                               <p class="text-center text-light display-4 pt-2" style="font-size:25px">YAML FILE PROCESSING WITH PHP SYMFONY AND VUEJS</p>
+                       </div>
+                </div>
+              </div>
+    <div class="container pt-2" id="app">
+            
+
+            <div>
+                 
+                
+                    <b-modal ref="my-modal" hide-footer v-bind:title='title'>
+                     
+
+                
+                            <form id="formdata"  v-on:submit.prevent="onSubmit">
+
+                              <div :class="classname">
+
+                                  <div class="form-group">
+                                      <label for="recipient-name" class="col-form-label">Name:</label>
+                    
+                                      <input type="hidden" class="form-control" name="keydata" id="keydata" :value="keyvalue">
+                                      <input type="hidden" class="form-control" name="action" id="action" :value="actionvalue">
+                                      <input type="text" class="form-control" id="name" name="name" :value="namevalue">
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="message-text" class="col-form-label" >Description:</label>
+                                      <textarea class="form-control" id="description" name="description" :value="descriptionvalue"></textarea>
+                                    </div>
+
+                              </div>
+                              
+                           
+                         
+                          <div class="modal-footer">
+                          <input type="submit" class="btn btn-primary" value="Submit">
+                           
+                          </div>
+                        </form>
+
+                    </b-modal>
+                  </div>
+      
+
+
+
+  <!--modal content-->
+ 
+  <!--modal content-->
+  
+
+<button type="button" class="btn btn-primary float-right" v-on:click="add_new()">Ajouter Organization</button>
+      <table class="table table-striped" id="table_display">
+            <thead>
+              <tr>
+                <th width="50">#</th>
+                <th width="150">Name</th>
+                <th width="200">Description</th>
+                <th width="150">Edit</th>
+                <th width="150">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item,index) in results">
+                <td>{{index}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.description}}</td>
+                <td><a class="btn btn-primary" href="#"v-on:click="edit(index,item.name,item.description)">edit</a></td>
+                <td><a class="btn btn-danger" href="#"v-on:click="del(index,item.name,item.description)">delete</a></td>
+              </tr>
+            
+             
+            </tbody>
+          </table>
+      
+    
+    </div>
+
+   <!-- Load polyfills to support older browsers -->
+<script src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+
+<!-- Load Vue followed by BootstrapVue -->
+<script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
+<script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+
+<!-- Load the following for BootstrapVueIcons support -->
+<script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="vuemain.js"></script>
+  </body>
+</html>
