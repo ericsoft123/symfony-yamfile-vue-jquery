@@ -12,11 +12,43 @@ class ProjectController
 {
 
     public function __construct(){
-        //this is to initialize this file
+        //this is to initialize this file yaml 
 $this->filename='myfile/company.yaml';
-//$this->timezone ="hello";
+
+ //if you want to switch from front end example( vue to jquery or vice versa) you can comment one and leave another one by default is vuejs
+ 
+ $this->frontend="frontend/vue-front/index.html"; //This is vuejs
+ //$this->frontend="frontend/jquery-front/index.html";   //this is jquery
+
+
+    }
+     /**
+    * @Route("/")
+    */
+    public function index(){//afficher 
+        $file=$this->frontend;
+        if (file_exists($file)) {
+            return new Response(file_get_contents($file));
+        } else {
+            throw new NotFoundHttpException("Guide  Not Found.");
+        }
+        
+    }
+     /**
+    * @Route("/jquery")
+    */
+    public function jquery(){//this is to load the one for jquery only
+
+        $file="frontend/jquery-front/index.html";
+        if (file_exists($file)) {
+            return new Response(file_get_contents($file));
+        } else {
+            throw new NotFoundHttpException("Guide  Not Found.");
+        }
+        
     }
     /**
+     * 
     * @Route("/displayin_table")
     */
     public function displayin_table(){//afficher 

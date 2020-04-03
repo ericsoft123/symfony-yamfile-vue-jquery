@@ -1,10 +1,11 @@
-const link="http://localhost:8080";
+//const link="http://localhost:8080";//change this one with your backend url link running yaml processing file
 $(function(){
     display_data();
 });
 function display_data(){
 $.ajax({
-url:`${link}/displayin_table`,
+//url:`${link}/displayin_table`,
+url:`/displayin_table`,
 type:"get",
 
 success:function(data){
@@ -23,7 +24,7 @@ $name=data[i]["name"].replace(/'/g, "\\'");
   tablehtml+= '<tr><th scope="row">' + i + '</th><td>' + data[i]["name"] + '</td><td>' + data[i]["description"] + '</td><td>'+ $edit_data + '</td><td>' + $del_data + '</td></tr>';
 }
 
-$("#table_display tbody").after(tablehtml);
+$("#table_display tbody").html(tablehtml);
 }
 });
 }
@@ -70,7 +71,8 @@ return false;
 function submitdata(){
 $.ajax({
 
-url:`${link}/submitdata`,
+//url:`${link}/submitdata`,
+url:`/submitdata`,
 data:$('#formdata').serialize(),
 success:function(data){
     console.log(data);

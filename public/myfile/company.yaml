@@ -47,6 +47,3 @@ organizations:
         name: Sophie
         role: [SALES]
         password: demo3
-  -
-    name: facebook
-    description: muna
